@@ -7,7 +7,11 @@
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-    <iframe style="width: 100vw; height: 100vh;" src="http://localhost:5800/" title="Webpage Inside Extension"></iframe>
+  <input type="text" placeholder="link" id="linkInput" value="www.google.com">
+  <button id="openLinkBtn">Open Link</button>
+  <button id="purgeBtn">Deletee</button>
+  <div id="sandbox"></div>
   <script src="popup.js"></script>
+  <script src="util.js"></script>
 </body>
 </html>
