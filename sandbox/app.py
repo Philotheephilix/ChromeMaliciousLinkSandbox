@@ -1,11 +1,19 @@
-from flask import Flask
+from flask import Flask, request
 import subprocess
+
+import urllib
 
 app = Flask(__name__)
 
-@app.route('/initialize-docker/<URL>')
-def UrlToDocker(URL):
+@app.route('/initialize-docker', methods=['GET'])
+def UrlToDocker():
     try:
+        URL = request.args.get('url')
+        if not URL:
+            return "No URL provided", 400
+        
+        decoded_url = urllib.parse.unquote(URL)
+        print(decoded_url)
         command = [
             "docker", "run", "-d", "--name=firefox",
             "-p", "5800:5800",

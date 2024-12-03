@@ -34,3 +34,19 @@ function extractLinks() {
   });
   return links;
 }
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === 'openExtensionPage') {
+    const url = request.url;
+    console.log(request)
+    chrome.storage.local.set({ dangerousUrl: url }, () => {
+      if (chrome.runtime.lastError) {
+        console.error("Error setting data:", chrome.runtime.lastError);
+      } else {
+        console.log("dangerousUrl set:", url);
+      }
+    
+      chrome.runtime.openOptionsPage();
+    });
+    sendResponse({ status: 'success' });
+  }
+});

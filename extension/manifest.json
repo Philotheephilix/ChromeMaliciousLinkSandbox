@@ -5,12 +5,25 @@
   "description": "Analyzes webpage links using Google Safe Browsing API",
   "permissions": [
     "activeTab",
-    "scripting"
+    "scripting",
+    "tabs",
+    "storage",
+    "http://localhost:5800/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"], 
+      "js": ["content.js"]
+    }
   ],
   "host_permissions": [
     "https://safebrowsing.googleapis.com/*"
   ],
   "action": {
     "default_popup": "popup.html"
-  }
+  },
+  "options_page": "sandbox.html"
 }
