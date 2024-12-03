@@ -1,13 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>URL Display</title>
-  <link rel="stylesheet" href="popup.css">
+  <style>
+    body {
+      width: 500px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+
+    .link-item {
+      margin: 10px 0;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .safe {
+      border-left: 4px solid #4CAF50;
+    }
+
+    .dangerous {
+      border-left: 4px solid #F44336;
+    }
+
+    .loading {
+      color: #666;
+      font-style: italic;
+    }
+
+    .threat-type {
+      margin-top: 5px;
+      color: #d32f2f;
+      font-weight: bold;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 12px;
+      margin-left: 8px;
+    }
+
+    .safe-badge {
+      background-color: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .danger-badge {
+      background-color: #ffebee;
+      color: #c62828;
+    }
+
+    #progress {
+      margin: 10px 0;
+      color: #666;
+    }
+
+    #summary {
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+    }
+  </style>
 </head>
+
 <body>
-    <iframe style="width: 100vw; height: 100vh;" src="http://localhost:5800/" title="Webpage Inside Extension"></iframe>
+  <button id="extractBtn">Check Links Safety</button>
+  <div id="progress"></div>
+  <div id="summary"></div>
+  <div id="linkList"></div>
+  <script src="config.js"></script>
   <script src="popup.js"></script>
 </body>
+
 </html>

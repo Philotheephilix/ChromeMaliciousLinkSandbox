@@ -1,22 +1,16 @@
 {
-    "manifest_version": 3,
-    "name": "URL Display Extension",
-    "description": "Display the current URL with an input and open button",
-    "version": "1.0",
-    "permissions": ["activeTab"],
-    "action": {
-      "default_popup": "popup.html",
-      "default_icon": {
-        "16": "sample.svg",
-        "48": "sample.svg",
-        "128": "sample.svg"
-      }
-    },
-
-    "icons": {
-      "16": "sample.svg",
-      "48": "sample.svg",
-      "128": "sample.svg"
-    }
+  "manifest_version": 3,
+  "name": "Link Extractor",
+  "version": "1.0",
+  "description": "Analyzes webpage links using Google Safe Browsing API",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://safebrowsing.googleapis.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
   }
-  
+}
