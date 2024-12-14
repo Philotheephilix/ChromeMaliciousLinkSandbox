@@ -34,7 +34,7 @@ async function checkAndReplaceLinks() {
     const threatType = threatMap.get(linkObj.href);
     const isSafe = !threatType;
 
-    if (true) {
+    if (!isSafe) {
       const button = document.createElement('button');
       button.textContent = linkObj.element.textContent; // Preserve the original text
       button.setAttribute('data-url', linkObj.href); // Store the URL in the button's data attribute
